@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="../fontawesome/css/all.css">
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="form-box">
+            <h1 id="title">Sign Up</h1>
+            <form onsubmit="signup(event)" id="Form">
+                <div class="form-box1" id="nameFeild">
+                    <i class="fa-solid fa-user"></i>
+                    <input type="text" placeholder="User Name" id="username">
+                </div>
+                <div class="form-box1">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" placeholder="Email" id="email" required>
+                </div>
+                <div class="form-box1">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" placeholder="Password" id="password" required>
+                </div>
+                <div class="btn-feild">
+                    <button id="signupBtn" onclick="clearInput()">Sign Up</button>
+                    <a type="submit" class="disable-btn" id="signinBtn" href="signin.html">Sign In</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-analytics.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyB39PQ_AJNW2x54fSywR-82kenIwh5-PDk",
+            authDomain: "e-commerce-f5b80.firebaseapp.com",
+            projectId: "e-commerce-f5b80",
+            storageBucket: "e-commerce-f5b80.appspot.com",
+            messagingSenderId: "982196182478",
+            appId: "1:982196182478:web:9543ac88327a0bf3229f9f"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth();
+        var username = document.getElementById('username');
+        var email = document.getElementById('email');
+        var password = document.getElementById('password');
+        window.signup = function (e) {
+            e.preventDefault();
+            var obj = {
+                username: username.value,
+                email: email.value,
+                password: password.value,
+            };
+            createUserWithEmailAndPassword(auth, obj.email, obj.password)
+                .then(function (success) {
+                    alert("signup seccessfully");
+                })
+                .catch(function (err) {
+                    alert("ERROR" + err);
+                });
+            console.log(obj)
+        }; 
+    </script>
+</body>
+
+</html>
