@@ -1,61 +1,61 @@
  ///////////////////////////////login ui///////////////////////////////////////
-let signupBtn = document.getElementById('signupBtn');
-let signinBtn = document.getElementById('signinBtn');
-let nameFeild = document.getElementById('nameFeild');
-let title = document.getElementById('title');
-signinBtn.onclick = function () {
-    nameFeild.style.maxHeight = "0";
-    title.innerHTML = "Sign In";
-    signupBtn.classList.add("disable-btn");
-    signinBtn.classList.remove("disable-btn");
+// let signupBtn = document.getElementById('signupBtn');
+// let signinBtn = document.getElementById('signinBtn');
+// let nameFeild = document.getElementById('nameFeild');
+// let title = document.getElementById('title');
+// signinBtn.onclick = function () {
+//     nameFeild.style.maxHeight = "0";
+//     title.innerHTML = "Sign In";
+//     signupBtn.classList.add("disable-btn");
+//     signinBtn.classList.remove("disable-btn");
 
-}
-signupBtn.onclick = function () {
-    nameFeild.style.maxHeight = "60px";
-    title.innerHTML = "Sign Up";
-    signinBtn.classList.add("disable-btn");
-    signupBtn.classList.remove("disable-btn");
+// }
+// signupBtn.onclick = function () {
+//     nameFeild.style.maxHeight = "60px";
+//     title.innerHTML = "Sign Up";
+//     signinBtn.classList.add("disable-btn");
+//     signupBtn.classList.remove("disable-btn");
 
-}
+// }
 
-////////////////////////////////////////////firebase//////////////////////////////
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+// ////////////////////////////////////////////firebase//////////////////////////////
+// import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+// import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-auth.js";
+// // TODO: Add SDKs for Firebase products that you want to use
+// // https://firebase.google.com/docs/web/setup#available-libraries
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-    apiKey: "AIzaSyB39PQ_AJNW2x54fSywR-82kenIwh5-PDk",
-    authDomain: "e-commerce-f5b80.firebaseapp.com",
-    projectId: "e-commerce-f5b80",
-    storageBucket: "e-commerce-f5b80.appspot.com",
-    messagingSenderId: "982196182478",
-    appId: "1:982196182478:web:9543ac88327a0bf3229f9f"
-};
+// // Your web app's Firebase configuration
+// const firebaseConfig = {
+//     apiKey: "AIzaSyB39PQ_AJNW2x54fSywR-82kenIwh5-PDk",
+//     authDomain: "e-commerce-f5b80.firebaseapp.com",
+//     projectId: "e-commerce-f5b80",
+//     storageBucket: "e-commerce-f5b80.appspot.com",
+//     messagingSenderId: "982196182478",
+//     appId: "1:982196182478:web:9543ac88327a0bf3229f9f"
+// };
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth();
-var username = document.getElementById('username');
-var email = document.getElementById('email');
-var password = document.getElementById('password');
-window.signup = function (e) {
-    e.preventDefault();
-    var obj = {
-        username: username.value,
-        email: email.value,
-        password: password.value,
-    };
-    createUserWithEmailAndPassword(auth, obj.email, obj.password)
-        .then(function (success) {
-            alert("signup seccessfully");
-        })
-        .catch(function (err) {
-            alert("ERROR" + err);
-        });
-    console.log(obj)
-};
+// // Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+// const auth = getAuth();
+// var username = document.getElementById('username');
+// var email = document.getElementById('email');
+// var password = document.getElementById('password');
+// window.signup = function (e) {
+//     e.preventDefault();
+//     var obj = {
+//         username: username.value,
+//         email: email.value,
+//         password: password.value,
+//     };
+//     createUserWithEmailAndPassword(auth, obj.email, obj.password)
+//         .then(function (success) {
+//             alert("signup seccessfully");
+//         })
+//         .catch(function (err) {
+//             alert("ERROR" + err);
+//         });
+//     console.log(obj)
+// };
 
 
 
